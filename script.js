@@ -293,102 +293,108 @@ let currentQuiz = null;
 let currentQuestion = 0;
 let score = 0;
 let questions = [];
+let hasAnswered = false;
 
 // DOM Elements
 const quizSelection = document.getElementById('quiz-selection');
 const quizContainer = document.getElementById('quiz-container');
-const resultContainer = document.getElementById('result-container');
 const questionElement = document.getElementById('question');
 const optionsContainer = document.getElementById('options-container');
 const nextButton = document.getElementById('next-btn');
-const scoreElement = document.getElementById('score');
-const totalQuestionsElement = document.getElementById('total-questions');
+const resultContainer = document.getElementById('result-container');
 const progressBar = document.getElementById('progress');
-const tryAgainButton = document.getElementById('try-again-btn');
-const homeButton = document.getElementById('home-btn');
 
-// Add event listeners to quiz type selection
-document.querySelectorAll('.quiz-type').forEach(type => {
-    type.addEventListener('click', () => {
-        const quizType = type.dataset.type;
-        startQuiz(quizType);
+// Initialize quiz type selection
+document.querySelectorAll('.quiz-type').forEach(button => {
+    button.addEventListener('click', () => {
+        const type = button.getAttribute('data-type');
+        startQuiz(type);
     });
 });
 
 function startQuiz(type) {
     currentQuiz = type;
-    questions = quizData[type];
     currentQuestion = 0;
     score = 0;
+    questions = quizData[type];
     
+    // Hide quiz selection and show quiz container
+    quizSelection.classList.remove('active-section');
     quizSelection.classList.add('hide');
     quizContainer.classList.remove('hide');
     resultContainer.classList.add('hide');
     
     showQuestion();
-    updateProgress();
 }
 
 function showQuestion() {
     const question = questions[currentQuestion];
-    questionElement.textContent = question.question;
-    
+    questionElement.innerHTML = question.question;
     optionsContainer.innerHTML = '';
-    
+    hasAnswered = false;
+    nextButton.classList.add('hide');
+
     if (question.type === 'fill-blank') {
         const input = document.createElement('input');
         input.type = 'text';
         input.className = 'fill-blank-input';
-        input.placeholder = 'Type your answer...';
-        
-        const hint = document.createElement('p');
-        hint.className = 'hint';
-        hint.textContent = `Hint: ${question.hint}`;
-        
+        input.placeholder = 'Type your answer here...';
+        input.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter' && !hasAnswered) {
+                selectAnswer(0);
+            }
+        });
         optionsContainer.appendChild(input);
-        optionsContainer.appendChild(hint);
     } else {
         question.options.forEach((option, index) => {
-            const button = document.createElement('div');
-            button.className = 'option';
-            button.textContent = option;
-            button.addEventListener('click', () => selectAnswer(index));
+            const button = document.createElement('button');
+            button.innerHTML = option;
+            button.classList.add('option');
+            button.addEventListener('click', () => {
+                if (!hasAnswered) {
+                    selectAnswer(index);
+                }
+            });
             optionsContainer.appendChild(button);
         });
     }
-    
-    nextButton.style.display = 'none';
+
+    updateProgress();
 }
 
 function selectAnswer(selectedIndex) {
+    if (hasAnswered) return;
+    
     const question = questions[currentQuestion];
-    const options = optionsContainer.children;
+    hasAnswered = true;
     
     if (question.type === 'fill-blank') {
-        const input = options[0];
+        const input = optionsContainer.querySelector('input');
         const userAnswer = input.value.trim().toLowerCase();
         const correct = question.correct.toLowerCase();
         
         if (userAnswer === correct) {
-            input.style.borderBottomColor = '#34a853';
+            input.classList.add('correct');
             score++;
         } else {
-            input.style.borderBottomColor = '#ea4335';
+            input.classList.add('wrong');
         }
+        input.disabled = true;
     } else {
-        for (let i = 0; i < options.length; i++) {
-            if (i === selectedIndex) {
-                if (i === question.correct) {
-                    options[i].classList.add('correct');
+        const options = optionsContainer.querySelectorAll('.option');
+        options.forEach((option, index) => {
+            option.disabled = true;
+            if (index === selectedIndex) {
+                option.classList.add(index === question.correct ? 'correct' : 'wrong');
+                if (index === question.correct) {
                     score++;
-                } else {
-                    options[i].classList.add('wrong');
                 }
             }
-        }
+            option.classList.add('disabled');
+        });
     }
     
-    nextButton.style.display = 'block';
+    nextButton.classList.remove('hide');
 }
 
 function updateProgress() {
@@ -396,29 +402,23 @@ function updateProgress() {
     progressBar.style.width = `${progress}%`;
 }
 
-function showResult() {
-    quizContainer.classList.add('hide');
-    resultContainer.classList.remove('hide');
-    scoreElement.textContent = score;
-    totalQuestionsElement.textContent = questions.length;
-}
-
 nextButton.addEventListener('click', () => {
+    if (!hasAnswered) return;
+    
     currentQuestion++;
     if (currentQuestion < questions.length) {
         showQuestion();
-        updateProgress();
     } else {
         showResult();
     }
 });
 
-tryAgainButton.addEventListener('click', () => {
-    startQuiz(currentQuiz);
-});
-
-homeButton.addEventListener('click', () => {
-    quizSelection.classList.remove('hide');
-    resultContainer.classList.add('hide');
-    currentQuiz = null;
-});
+function showResult() {
+    quizContainer.classList.add('hide');
+    resultContainer.classList.remove('hide');
+    
+    const percentage = (score / questions.length) * 100;
+    const resultMessage = `You scored ${score} out of ${questions.length} (${percentage.toFixed(1)}%)`;
+    
+    document.getElementById('final-score').textContent = resultMessage;
+}
