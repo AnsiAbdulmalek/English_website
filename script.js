@@ -141,63 +141,63 @@ const quizData = {
     'fill-blank': [
         {
             question: "Complete the sentence: 'She ___ studying English for two years.'",
-            correct: "has been",
-            type: "fill-blank",
-            hint: "Use present perfect continuous tense"
-        },
-        {
-            question: "Fill in the blank: 'If it ___ tomorrow, I will stay home.'",
-            correct: "rains",
-            type: "fill-blank",
-            hint: "Use simple present tense in the if-clause"
-        },
-        {
-            question: "Complete: 'By this time next year, I ___ my degree.'",
-            correct: "will have finished",
-            type: "fill-blank",
-            hint: "Use future perfect tense"
-        },
-        {
-            question: "Fill in: 'I wish I ___ harder for the test yesterday.'",
-            correct: "had studied",
-            type: "fill-blank",
-            hint: "Use past perfect tense after 'wish' for past regret"
-        },
-        {
-            question: "Complete: 'The movie ___ by the time we arrived.'",
-            correct: "had started",
-            type: "fill-blank",
-            hint: "Use past perfect tense for an action completed before another past action"
-        },
-        {
-            question: "Fill in: 'This time tomorrow, we ___ on the beach.'",
-            correct: "will be lying",
-            type: "fill-blank",
-            hint: "Use future continuous tense"
-        },
-        {
-            question: "Complete: 'I ___ to the radio while cooking.'",
-            correct: "was listening",
-            type: "fill-blank",
-            hint: "Use past continuous tense"
-        },
-        {
-            question: "Fill in: 'She ___ in London since 2010.'",
-            correct: "has lived",
-            type: "fill-blank",
-            hint: "Use present perfect tense"
-        },
-        {
-            question: "Complete: 'By next month, they ___ in their new house.'",
-            correct: "will have been living",
-            type: "fill-blank",
-            hint: "Use future perfect continuous tense"
+            type: 'fill-blank',
+            options: ['has been', 'have been', 'was', 'is'],
+            correct: 0
         },
         {
             question: "Fill in: 'If I ___ rich, I would travel the world.'",
-            correct: "were",
-            type: "fill-blank",
-            hint: "Use past subjunctive for hypothetical situation"
+            type: 'fill-blank',
+            options: ['were', 'was', 'am', 'will be'],
+            correct: 0
+        },
+        {
+            question: "Complete: 'By this time tomorrow, I ___ my homework.'",
+            type: 'fill-blank',
+            options: ['will have finished', 'will finish', 'have finished', 'finished'],
+            correct: 0
+        },
+        {
+            question: "Fill in: 'I wish I ___ harder for the test yesterday.'",
+            type: 'fill-blank',
+            options: ['had studied', 'study', 'studies', 'studying'],
+            correct: 0
+        },
+        {
+            question: "Complete: 'The movie ___ by the time we arrived.'",
+            type: 'fill-blank',
+            options: ['had started', 'has started', 'starts', 'start'],
+            correct: 0
+        },
+        {
+            question: "Fill in: 'This time tomorrow, we ___ on the beach.'",
+            type: 'fill-blank',
+            options: ['will be lying', 'will lie', 'are lying', 'lie'],
+            correct: 0
+        },
+        {
+            question: "Complete: 'I ___ to the radio while cooking.'",
+            type: 'fill-blank',
+            options: ['was listening', 'listen', 'listens', 'listening'],
+            correct: 0
+        },
+        {
+            question: "Fill in: 'She ___ in London since 2010.'",
+            type: 'fill-blank',
+            options: ['has lived', 'live', 'lives', 'living'],
+            correct: 0
+        },
+        {
+            question: "Complete: 'By next month, they ___ in their new house.'",
+            type: 'fill-blank',
+            options: ['will have been living', 'will live', 'live', 'lives'],
+            correct: 0
+        },
+        {
+            question: "Fill in: 'If I ___ rich, I would travel the world.'",
+            type: 'fill-blank',
+            options: ['were', 'was', 'am', 'will be'],
+            correct: 0
         }
     ],
     'grammar': [
@@ -303,6 +303,12 @@ const optionsContainer = document.getElementById('options-container');
 const nextButton = document.getElementById('next-btn');
 const resultContainer = document.getElementById('result-container');
 const progressBar = document.getElementById('progress');
+const endQuizBtn = document.getElementById('end-quiz-btn');
+const newQuizBtn = document.getElementById('new-quiz-btn');
+const tryAgainBtn = document.getElementById('try-again-btn');
+const chooseNewBtn = document.getElementById('choose-new-btn');
+const hintContainer = document.getElementById('hint-container');
+const possibleAnswers = document.getElementById('possible-answers');
 
 // Initialize quiz type selection
 document.querySelectorAll('.quiz-type').forEach(button => {
@@ -312,14 +318,36 @@ document.querySelectorAll('.quiz-type').forEach(button => {
     });
 });
 
+// Quiz control buttons
+endQuizBtn.addEventListener('click', () => {
+    if (confirm('Are you sure you want to end this quiz? Your progress will be lost.')) {
+        showResult();
+    }
+});
+
+tryAgainBtn.addEventListener('click', () => {
+    startQuiz(currentQuiz);
+});
+
+chooseNewBtn.addEventListener('click', () => {
+    resetQuiz();
+});
+
+function resetQuiz() {
+    quizContainer.classList.add('hide');
+    resultContainer.classList.add('hide');
+    quizSelection.classList.remove('hide');
+    currentQuiz = null;
+    currentQuestion = 0;
+    score = 0;
+}
+
 function startQuiz(type) {
     currentQuiz = type;
     currentQuestion = 0;
     score = 0;
     questions = quizData[type];
     
-    // Hide quiz selection and show quiz container
-    quizSelection.classList.remove('active-section');
     quizSelection.classList.add('hide');
     quizContainer.classList.remove('hide');
     resultContainer.classList.add('hide');
@@ -334,66 +362,42 @@ function showQuestion() {
     hasAnswered = false;
     nextButton.classList.add('hide');
 
-    if (question.type === 'fill-blank') {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'fill-blank-input';
-        input.placeholder = 'Type your answer here...';
-        input.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter' && !hasAnswered) {
-                selectAnswer(0);
+    question.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.innerHTML = option;
+        button.classList.add('option');
+        button.addEventListener('click', () => {
+            if (!hasAnswered) {
+                checkAnswer(index, button);
             }
         });
-        optionsContainer.appendChild(input);
-    } else {
-        question.options.forEach((option, index) => {
-            const button = document.createElement('button');
-            button.innerHTML = option;
-            button.classList.add('option');
-            button.addEventListener('click', () => {
-                if (!hasAnswered) {
-                    selectAnswer(index);
-                }
-            });
-            optionsContainer.appendChild(button);
-        });
-    }
+        optionsContainer.appendChild(button);
+    });
 
     updateProgress();
 }
 
-function selectAnswer(selectedIndex) {
+function checkAnswer(selectedIndex, selectedButton) {
     if (hasAnswered) return;
-    
-    const question = questions[currentQuestion];
     hasAnswered = true;
+
+    const question = questions[currentQuestion];
+    const isCorrect = selectedIndex === question.correct;
+
+    // Disable all options
+    const allOptions = optionsContainer.querySelectorAll('.option');
+    allOptions.forEach(option => {
+        option.disabled = true;
+        option.classList.add('disabled');
+    });
+
+    // Mark selected answer
+    selectedButton.classList.add(isCorrect ? 'correct' : 'wrong');
     
-    if (question.type === 'fill-blank') {
-        const input = optionsContainer.querySelector('input');
-        const userAnswer = input.value.trim().toLowerCase();
-        const correct = question.correct.toLowerCase();
-        
-        if (userAnswer === correct) {
-            input.classList.add('correct');
-            score++;
-        } else {
-            input.classList.add('wrong');
-        }
-        input.disabled = true;
-    } else {
-        const options = optionsContainer.querySelectorAll('.option');
-        options.forEach((option, index) => {
-            option.disabled = true;
-            if (index === selectedIndex) {
-                option.classList.add(index === question.correct ? 'correct' : 'wrong');
-                if (index === question.correct) {
-                    score++;
-                }
-            }
-            option.classList.add('disabled');
-        });
+    if (isCorrect) {
+        score++;
     }
-    
+
     nextButton.classList.remove('hide');
 }
 
