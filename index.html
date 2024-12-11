@@ -45,26 +45,43 @@
         <!-- Quiz Container -->
         <div id="quiz-container" class="section hide">
             <div class="quiz-header">
-                <div class="progress-container">
-                    <div id="progress"></div>
+                <div class="quiz-stats">
+                    <div class="timer-wrapper">
+                        <div class="timer-ring">
+                            <svg>
+                                <circle id="timer-circle" cx="40" cy="40" r="35"></circle>
+                            </svg>
+                            <div id="timer-display">40</div>
+                        </div>
+                    </div>
+                    <div class="question-stats">
+                        <div id="question-counter">
+                            <span id="current-question">0</span>
+                            <span class="separator">/</span>
+                            <span id="total-questions">0</span>
+                        </div>
+                        <div class="question-label">Questions</div>
+                    </div>
                 </div>
                 <div class="quiz-controls">
                     <button id="end-quiz-btn" class="control-btn">End Quiz</button>
-                    <button id="new-quiz-btn" class="control-btn">New Quiz</button>
                 </div>
             </div>
 
             <div id="question-container">
                 <h2 id="question"></h2>
                 <div id="options-container"></div>
-                <button id="next-btn" class="btn hide">Next Question</button>
             </div>
         </div>
 
         <!-- Result Container -->
         <div id="result-container" class="section hide">
             <h2>Quiz Complete!</h2>
-            <p id="final-score"></p>
+            <div class="result-summary">
+                <p id="final-score"></p>
+                <div id="performance-message"></div>
+                <div id="question-review"></div>
+            </div>
             <div class="result-buttons">
                 <button id="try-again-btn" class="btn">Try Again</button>
                 <button id="choose-new-btn" class="btn">Choose New Quiz</button>

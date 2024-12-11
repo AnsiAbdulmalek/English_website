@@ -292,137 +292,212 @@ const quizData = {
 let currentQuiz = null;
 let currentQuestion = 0;
 let score = 0;
-let questions = [];
 let hasAnswered = false;
+let timer = null;
+let timeLeft = 40;
+let userAnswers = [];
+let currentQuizType = null;
 
 // DOM Elements
 const quizSelection = document.getElementById('quiz-selection');
 const quizContainer = document.getElementById('quiz-container');
+const resultContainer = document.getElementById('result-container');
 const questionElement = document.getElementById('question');
 const optionsContainer = document.getElementById('options-container');
-const nextButton = document.getElementById('next-btn');
-const resultContainer = document.getElementById('result-container');
-const progressBar = document.getElementById('progress');
+const progress = document.getElementById('progress');
 const endQuizBtn = document.getElementById('end-quiz-btn');
-const newQuizBtn = document.getElementById('new-quiz-btn');
 const tryAgainBtn = document.getElementById('try-again-btn');
 const chooseNewBtn = document.getElementById('choose-new-btn');
-const hintContainer = document.getElementById('hint-container');
-const possibleAnswers = document.getElementById('possible-answers');
+const finalScore = document.getElementById('final-score');
+const performanceMessage = document.getElementById('performance-message');
+const questionReview = document.getElementById('question-review');
 
-// Initialize quiz type selection
-document.querySelectorAll('.quiz-type').forEach(button => {
-    button.addEventListener('click', () => {
-        const type = button.getAttribute('data-type');
-        startQuiz(type);
-    });
-});
-
-// Quiz control buttons
-endQuizBtn.addEventListener('click', () => {
-    if (confirm('Are you sure you want to end this quiz? Your progress will be lost.')) {
-        showResult();
+// Update timer circle animation
+function updateTimerAnimation(timeLeft) {
+    const circle = document.getElementById('timer-circle');
+    const totalLength = 220; // Circumference of the circle
+    const timePercentage = timeLeft / 40;
+    const dashOffset = totalLength * (1 - timePercentage);
+    circle.style.strokeDashoffset = dashOffset;
+    
+    if (timeLeft <= 10) {
+        circle.classList.add('warning');
+        document.getElementById('timer-display').classList.add('timer-warning');
+    } else {
+        circle.classList.remove('warning');
+        document.getElementById('timer-display').classList.remove('timer-warning');
     }
-});
+}
 
-tryAgainBtn.addEventListener('click', () => {
-    startQuiz(currentQuiz);
-});
+function startTimer() {
+    timeLeft = 40;
+    updateTimerDisplay();
+    updateTimerAnimation(timeLeft);
+    
+    if (timer) clearInterval(timer);
+    
+    timer = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        updateTimerAnimation(timeLeft);
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            showResult();
+        }
+    }, 1000);
+}
 
-chooseNewBtn.addEventListener('click', () => {
-    resetQuiz();
-});
+function updateTimerDisplay() {
+    document.getElementById('timer-display').textContent = timeLeft;
+}
+
+function updateQuestionCounter() {
+    document.getElementById('current-question').textContent = currentQuestion + 1;
+    document.getElementById('total-questions').textContent = currentQuiz.length;
+}
 
 function resetQuiz() {
-    quizContainer.classList.add('hide');
-    resultContainer.classList.add('hide');
-    quizSelection.classList.remove('hide');
     currentQuiz = null;
     currentQuestion = 0;
     score = 0;
+    hasAnswered = false;
+    userAnswers = [];
+    if (timer) clearInterval(timer);
+    
+    quizContainer.classList.add('hide');
+    resultContainer.classList.add('hide');
+    quizSelection.classList.remove('hide');
 }
 
 function startQuiz(type) {
-    currentQuiz = type;
+    currentQuizType = type;
+    currentQuiz = quizData[type];
     currentQuestion = 0;
     score = 0;
-    questions = quizData[type];
+    userAnswers = [];
     
     quizSelection.classList.add('hide');
     quizContainer.classList.remove('hide');
-    resultContainer.classList.add('hide');
-    
+    updateQuestionCounter();
+    startTimer();
     showQuestion();
 }
 
-function showQuestion() {
-    const question = questions[currentQuestion];
-    questionElement.innerHTML = question.question;
-    optionsContainer.innerHTML = '';
-    hasAnswered = false;
-    nextButton.classList.add('hide');
+// Modify try again button to restart same quiz type
+document.getElementById('try-again-btn').addEventListener('click', () => {
+    if (currentQuizType) {
+        startQuiz(currentQuizType);
+    }
+});
 
-    question.options.forEach((option, index) => {
+// Choose new quiz button goes back to quiz selection
+document.getElementById('choose-new-btn').addEventListener('click', resetQuiz);
+
+// End quiz button shows results
+document.getElementById('end-quiz-btn').addEventListener('click', showResult);
+
+function showQuestion() {
+    const questionData = currentQuiz[currentQuestion];
+    questionElement.textContent = questionData.question;
+    optionsContainer.innerHTML = '';
+    
+    questionData.options.forEach((option, index) => {
         const button = document.createElement('button');
-        button.innerHTML = option;
-        button.classList.add('option');
-        button.addEventListener('click', () => {
-            if (!hasAnswered) {
-                checkAnswer(index, button);
-            }
-        });
+        button.textContent = option;
+        button.classList.add('option-btn');
+        button.addEventListener('click', () => checkAnswer(index, button));
         optionsContainer.appendChild(button);
     });
-
-    updateProgress();
+    
+    updateQuestionCounter();
 }
 
 function checkAnswer(selectedIndex, selectedButton) {
     if (hasAnswered) return;
-    hasAnswered = true;
-
-    const question = questions[currentQuestion];
-    const isCorrect = selectedIndex === question.correct;
-
-    // Disable all options
-    const allOptions = optionsContainer.querySelectorAll('.option');
-    allOptions.forEach(option => {
-        option.disabled = true;
-        option.classList.add('disabled');
-    });
-
-    // Mark selected answer
-    selectedButton.classList.add(isCorrect ? 'correct' : 'wrong');
     
-    if (isCorrect) {
+    hasAnswered = true;
+    const correct = currentQuiz[currentQuestion].correct === selectedIndex;
+    userAnswers[currentQuestion] = selectedIndex;
+    
+    if (correct) {
         score++;
+        selectedButton.classList.add('correct');
+    } else {
+        selectedButton.classList.add('wrong');
+        optionsContainer.children[currentQuiz[currentQuestion].correct].classList.add('correct');
     }
-
-    nextButton.classList.remove('hide');
+    
+    if (timeLeft > 0) {
+        setTimeout(moveToNextQuestion, 1500);
+    }
 }
 
-function updateProgress() {
-    const progress = ((currentQuestion + 1) / questions.length) * 100;
-    progressBar.style.width = `${progress}%`;
-}
-
-nextButton.addEventListener('click', () => {
-    if (!hasAnswered) return;
+function moveToNextQuestion() {
+    if (!hasAnswered) {
+        userAnswers[currentQuestion] = undefined;
+    }
     
     currentQuestion++;
-    if (currentQuestion < questions.length) {
+    hasAnswered = false;
+    
+    if (currentQuestion < currentQuiz.length && timeLeft > 0) {
         showQuestion();
     } else {
         showResult();
     }
-});
+}
 
 function showResult() {
+    if (timer) clearInterval(timer);
     quizContainer.classList.add('hide');
     resultContainer.classList.remove('hide');
     
-    const percentage = (score / questions.length) * 100;
-    const resultMessage = `You scored ${score} out of ${questions.length} (${percentage.toFixed(1)}%)`;
+    const percentage = (score / currentQuiz.length) * 100;
+    finalScore.textContent = `Your Score: ${score}/${currentQuiz.length} (${percentage.toFixed(1)}%)`;
     
-    document.getElementById('final-score').textContent = resultMessage;
+    // Add performance message
+    if (percentage >= 90) {
+        performanceMessage.textContent = "Excellent! You've mastered this topic!";
+    } else if (percentage >= 70) {
+        performanceMessage.textContent = "Good job! Keep practicing to improve further.";
+    } else if (percentage >= 50) {
+        performanceMessage.textContent = "Not bad! More practice will help you improve.";
+    } else {
+        performanceMessage.textContent = "Keep practicing! You'll get better with time.";
+    }
+
+    // Create question review
+    questionReview.innerHTML = '<h3>Question Review:</h3>';
+    
+    currentQuiz.forEach((question, index) => {
+        const reviewItem = document.createElement('div');
+        reviewItem.className = 'question-review-item';
+        
+        // Add correct/wrong indicator
+        const isCorrect = userAnswers[index] === question.correct;
+        reviewItem.classList.add(isCorrect ? 'correct' : 'wrong');
+        
+        // Question number and text
+        const questionText = document.createElement('p');
+        questionText.innerHTML = `<strong>Question ${index + 1}:</strong> ${question.question}`;
+        reviewItem.appendChild(questionText);
+        
+        // User's answer and correct answer
+        const answerText = document.createElement('p');
+        if (userAnswers[index] === undefined) {
+            answerText.textContent = `Time ran out. Correct answer: ${question.options[question.correct]}`;
+        } else {
+            answerText.innerHTML = `Your answer: ${question.options[userAnswers[index]]}` +
+                (isCorrect ? ' ✓' : ` ✗ (Correct: ${question.options[question.correct]})`);
+        }
+        reviewItem.appendChild(answerText);
+        
+        questionReview.appendChild(reviewItem);
+    });
 }
+
+// Event listeners
+document.querySelectorAll('.quiz-type').forEach(button => {
+    button.addEventListener('click', () => startQuiz(button.dataset.type));
+});
