@@ -210,19 +210,19 @@ const quizData = {
                 "We is students."
             ],
             correct: 2,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Select the correct comparative form: 'This book is ___ than that one.'",
             options: ["more better", "more good", "better", "more best"],
             correct: 2,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Choose the correct relative pronoun: 'The person ___ called yesterday is my teacher.'",
             options: ["who", "which", "whose", "whom"],
             correct: 0,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Select the correct passive voice: 'The letter ___.'",
@@ -233,19 +233,19 @@ const quizData = {
                 "is being write"
             ],
             correct: 0,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Choose the correct conditional form: 'If I ___ rich, I would buy a house.'",
             options: ["am", "were", "was", "would be"],
             correct: 1,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Select the correct verb form: 'Neither of the students ___ the answer.'",
             options: ["know", "knows", "known", "knowing"],
             correct: 1,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Which sentence uses parallel structure correctly?",
@@ -256,7 +256,7 @@ const quizData = {
                 "She likes to swim, to dance, and singing."
             ],
             correct: 1,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Choose the correct reported speech: 'I am tired,' she said.",
@@ -267,7 +267,7 @@ const quizData = {
                 "She said I am tired."
             ],
             correct: 0,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Select the correct sentence:",
@@ -278,13 +278,182 @@ const quizData = {
                 "The news have been good."
             ],
             correct: 1,
-            type: "multiple-choice"
+            type: "grammar"
         },
         {
             question: "Choose the correct form: 'Each of the students ___ their own laptop.'",
             options: ["have", "has", "having", "had"],
             correct: 1,
-            type: "multiple-choice"
+            type: "grammar"
+        }
+    ],
+    'vocabulary': [
+        {
+            question: "What is the meaning of 'perseverance'?",
+            options: [
+                "Giving up easily",
+                "Steady persistence despite difficulties",
+                "Being lazy",
+                "Quick success"
+            ],
+            correct: 1,
+            type: "vocabulary"
+        },
+        {
+            question: "Choose the best synonym for 'benevolent':",
+            options: [
+                "Kind",
+                "Cruel",
+                "Angry",
+                "Tired"
+            ],
+            correct: 0,
+            type: "vocabulary"
+        },
+        {
+            question: "What does 'procrastinate' mean?",
+            options: [
+                "To work quickly",
+                "To delay or postpone",
+                "To finish early",
+                "To organize well"
+            ],
+            correct: 1,
+            type: "vocabulary"
+        },
+        {
+            question: "Select the antonym of 'abundant':",
+            options: [
+                "Scarce",
+                "Plentiful",
+                "Numerous",
+                "Copious"
+            ],
+            correct: 0,
+            type: "vocabulary"
+        },
+        {
+            question: "What is the meaning of 'diligent'?",
+            options: [
+                "Lazy",
+                "Careless",
+                "Hardworking",
+                "Distracted"
+            ],
+            correct: 2,
+            type: "vocabulary"
+        },
+        {
+            question: "What does 'ambiguous' mean?",
+            options: [
+                "Clear and precise",
+                "Open to multiple interpretations",
+                "Determined",
+                "Straightforward"
+            ],
+            correct: 1,
+            type: "vocabulary"
+        },
+        {
+            question: "Choose the best synonym for 'eloquent':",
+            options: [
+                "Persuasive and fluent",
+                "Quiet and reserved",
+                "Confused and unclear",
+                "Simple and plain"
+            ],
+            correct: 0,
+            type: "vocabulary"
+        },
+        {
+            question: "What is the meaning of 'pragmatic'?",
+            options: [
+                "Idealistic",
+                "Emotional",
+                "Practical and realistic",
+                "Theoretical"
+            ],
+            correct: 2,
+            type: "vocabulary"
+        },
+        {
+            question: "Select the antonym of 'meticulous':",
+            options: [
+                "Careless",
+                "Precise",
+                "Thorough",
+                "Detailed"
+            ],
+            correct: 0,
+            type: "vocabulary"
+        },
+        {
+            question: "What does 'ephemeral' mean?",
+            options: [
+                "Lasting forever",
+                "Short-lived",
+                "Meaningful",
+                "Powerful"
+            ],
+            correct: 1,
+            type: "vocabulary"
+        }
+    ],
+    'reading': [
+        {
+            question: "Read the following passage:\n\nThe invention of the printing press by Johannes Gutenberg in the 15th century revolutionized the spread of information. Before this invention, books were handwritten by scribes, making them expensive and rare. The printing press allowed for mass production of books, making knowledge more accessible to the general public.\n\nWhat was the main impact of the printing press?",
+            options: [
+                "It made books more expensive",
+                "It made knowledge more accessible",
+                "It reduced the number of books available",
+                "It increased the need for scribes"
+            ],
+            correct: 1,
+            type: "reading"
+        },
+        {
+            question: "Read the following passage:\n\nHoney bees are remarkable creatures. They live in complex societies where each bee has a specific role. Worker bees collect nectar and pollen, while the queen bee lays eggs. The dance of the honey bee is a fascinating form of communication, where bees perform specific movements to tell other bees where to find flowers.\n\nWhat is the main purpose of the honey bee's dance?",
+            options: [
+                "To entertain other bees",
+                "To exercise",
+                "To communicate flower locations",
+                "To attract the queen"
+            ],
+            correct: 2,
+            type: "reading"
+        },
+        {
+            question: "Read the following passage:\n\nThe Great Barrier Reef is the world's largest coral reef system. Located off the coast of Australia, it is home to thousands of species of marine life. However, climate change and ocean acidification pose serious threats to this natural wonder. Rising sea temperatures cause coral bleaching, which can lead to coral death.\n\nWhat is the main threat to the Great Barrier Reef mentioned in the passage?",
+            options: [
+                "Tourism",
+                "Overfishing",
+                "Climate change",
+                "Marine pollution"
+            ],
+            correct: 2,
+            type: "reading"
+        },
+        {
+            question: "Read the following passage:\n\nThe Wright brothers, Orville and Wilbur, made history on December 17, 1903. On that day, they achieved the first powered, sustained flight of a heavier-than-air aircraft. The flight lasted only 12 seconds and covered 120 feet, but it marked the beginning of modern aviation.\n\nHow long did the Wright brothers' first flight last?",
+            options: [
+                "12 minutes",
+                "12 hours",
+                "12 seconds",
+                "120 seconds"
+            ],
+            correct: 2,
+            type: "reading"
+        },
+        {
+            question: "Read the following passage:\n\nSign language is a complete, complex language that uses signs made by moving the hands, combined with facial expressions and body postures. It is not a universal language; different countries have their own sign languages. American Sign Language (ASL) is different from British Sign Language (BSL), for example.\n\nWhich statement is true according to the passage?",
+            options: [
+                "Sign language is the same worldwide",
+                "Sign language only uses hand movements",
+                "ASL and BSL are identical",
+                "Different countries have different sign languages"
+            ],
+            correct: 3,
+            type: "reading"
         }
     ]
 };
@@ -293,7 +462,7 @@ let currentQuiz = null;
 let currentQuestion = 0;
 let score = 0;
 let hasAnswered = false;
-let timer = null;
+let timerInterval;
 let timeLeft = 40;
 let userAnswers = [];
 let currentQuizType = null;
@@ -312,44 +481,57 @@ const finalScore = document.getElementById('final-score');
 const performanceMessage = document.getElementById('performance-message');
 const questionReview = document.getElementById('question-review');
 
-// Update timer circle animation
+const TIMER_DURATION = 40; // seconds
+const WARNING_THRESHOLD = 15; // seconds
+const DANGER_THRESHOLD = 5; // seconds
+
 function updateTimerAnimation(timeLeft) {
-    const circle = document.getElementById('timer-circle');
-    const totalLength = 220; // Circumference of the circle
-    const timePercentage = timeLeft / 40;
-    const dashOffset = totalLength * (1 - timePercentage);
-    circle.style.strokeDashoffset = dashOffset;
+    const timerCircle = document.getElementById('timer-circle');
+    const circumference = 2 * Math.PI * 35; // r = 35 from SVG
+    const timePercentage = timeLeft / TIMER_DURATION;
+    const offset = circumference * (1 - timePercentage);
     
-    if (timeLeft <= 10) {
-        circle.classList.add('warning');
-        document.getElementById('timer-display').classList.add('timer-warning');
-    } else {
-        circle.classList.remove('warning');
-        document.getElementById('timer-display').classList.remove('timer-warning');
+    // Reset classes
+    timerCircle.classList.remove('warning', 'danger');
+    
+    // Add appropriate class based on time left
+    if (timeLeft <= DANGER_THRESHOLD) {
+        timerCircle.classList.add('danger');
+    } else if (timeLeft <= WARNING_THRESHOLD) {
+        timerCircle.classList.add('warning');
     }
+    
+    // Update stroke animation
+    timerCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    timerCircle.style.strokeDashoffset = offset;
+    
+    // Update timer display
+    document.getElementById('timer-display').textContent = timeLeft;
 }
 
 function startTimer() {
-    timeLeft = 40;
-    updateTimerDisplay();
+    let timeLeft = TIMER_DURATION;
+    const timerCircle = document.getElementById('timer-circle');
+    
+    // Reset timer state
+    clearInterval(timerInterval);
+    timerCircle.classList.remove('warning', 'danger');
+    timerCircle.classList.add('animated');
+    
+    // Set initial animation duration
+    timerCircle.style.animation = `countdown ${TIMER_DURATION}s linear forwards`;
+    
     updateTimerAnimation(timeLeft);
     
-    if (timer) clearInterval(timer);
-    
-    timer = setInterval(() => {
+    timerInterval = setInterval(() => {
         timeLeft--;
-        updateTimerDisplay();
         updateTimerAnimation(timeLeft);
         
         if (timeLeft <= 0) {
-            clearInterval(timer);
+            clearInterval(timerInterval);
             showResult();
         }
     }, 1000);
-}
-
-function updateTimerDisplay() {
-    document.getElementById('timer-display').textContent = timeLeft;
 }
 
 function updateQuestionCounter() {
@@ -363,7 +545,7 @@ function resetQuiz() {
     score = 0;
     hasAnswered = false;
     userAnswers = [];
-    if (timer) clearInterval(timer);
+    if (timerInterval) clearInterval(timerInterval);
     
     quizContainer.classList.add('hide');
     resultContainer.classList.add('hide');
@@ -449,7 +631,7 @@ function moveToNextQuestion() {
 }
 
 function showResult() {
-    if (timer) clearInterval(timer);
+    if (timerInterval) clearInterval(timerInterval);
     quizContainer.classList.add('hide');
     resultContainer.classList.remove('hide');
     

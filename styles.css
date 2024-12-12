@@ -67,29 +67,74 @@ body {
 }
 
 /* Navigation Styles */
-.main-nav {
+.navbar {
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    border-radius: 17px;
+}
+
+.nav-links {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #f0f0f0;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
 }
 
 .nav-links a {
-    color: #333;
+    color: #666;
     text-decoration: none;
-    margin-left: 2rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
-    border-radius: 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     color: #1a73e8;
-    background-color: #e8f0fe;
+    background: #e8f0fe;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.6rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+    }
 }
 
 /* Section Transitions */
@@ -1041,21 +1086,21 @@ h1::after {
 /* Timer Styling */
 .timer-wrapper {
     position: relative;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
 }
 
 .timer-ring {
     position: relative;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .timer-ring svg {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     transform: rotate(-90deg);
@@ -1063,22 +1108,68 @@ h1::after {
 
 #timer-circle {
     fill: none;
-    stroke: #1a73e8;
-    stroke-width: 5;
+    stroke: #e0e0e0;
+    stroke-width: 8;
     stroke-linecap: round;
-    stroke-dasharray: 220;
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1s linear;
+    transition: stroke 0.3s ease;
 }
 
-#timer-circle.warning {
-    stroke: #dc3545;
+#timer-circle.animated {
+    stroke: #4CAF50;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 0;
+    animation: countdown linear forwards;
 }
 
 #timer-display {
-    font-size: 1.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #333;
+}
+
+/* Timer animations */
+@keyframes countdown {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: 220;
+    }
+}
+
+/* Timer state colors */
+#timer-circle.warning {
+    stroke: #FFA500;
+    animation: pulse-warning 1s ease-in-out infinite;
+}
+
+#timer-circle.danger {
+    stroke: #FF4444;
+    animation: pulse-danger 0.7s ease-in-out infinite;
+}
+
+@keyframes pulse-warning {
+    0%, 100% {
+        stroke-width: 8;
+    }
+    50% {
+        stroke-width: 10;
+    }
+}
+
+@keyframes pulse-danger {
+    0%, 100% {
+        stroke-width: 8;
+        filter: drop-shadow(0 0 2px rgba(255, 68, 68, 0.5));
+    }
+    50% {
+        stroke-width: 11;
+        filter: drop-shadow(0 0 6px rgba(255, 68, 68, 0.8));
+    }
 }
 
 /* Question Counter Styling */
@@ -1177,4 +1268,182 @@ h1::after {
 
 #current-question {
     animation: countdown 0.5s ease-out;
+}
+
+/* Container Base Styles */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+}
+
+/* Navigation Styles */
+.navbar {
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #1a73e8;
+    background: #e8f0fe;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.6rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* Contact Page Layout */
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.contact-info,
+.contact-form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        justify-content: space-around;
+        padding: 0 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        margin: 1rem auto;
+        gap: 1.5rem;
+    }
+
+    .contact-info,
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.6rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .contact-content {
+        margin: 0.8rem auto;
+        gap: 1rem;
+    }
+
+    .contact-info,
+    .contact-form-container {
+        padding: 1rem;
+    }
+
+    .contact-item {
+        padding: 0.8rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
 }
