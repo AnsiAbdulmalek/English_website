@@ -98,7 +98,7 @@ body {
     margin: 0 5px;
     border-radius: 6px;
     transition: all 0.3s ease;
-    display: inline-block;
+    display: inline-block;  
 }
 
 .nav-links a:hover,
