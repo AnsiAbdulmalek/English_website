@@ -463,7 +463,7 @@ let currentQuestion = 0;
 let score = 0;
 let hasAnswered = false;
 let timerInterval;
-let timeLeft = 70;
+let timeLeft = 40;
 let userAnswers = [];
 let currentQuizType = null;
 
@@ -481,7 +481,7 @@ const finalScore = document.getElementById('final-score');
 const performanceMessage = document.getElementById('performance-message');
 const questionReview = document.getElementById('question-review');
 
-const TIMER_DURATION = 40; // seconds
+const TIMER_DURATION = 70; // seconds
 const WARNING_THRESHOLD = 15; // seconds
 const DANGER_THRESHOLD = 5; // seconds
 
