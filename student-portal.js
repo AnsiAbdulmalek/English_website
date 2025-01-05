@@ -58,11 +58,11 @@ const students = {
         }
     },
 
-    'AMEER': {
+    'ABDO': {
         password: '13579',
-        name: 'Ameer Al-Nuhmi',
-        level: 'AD-B',
-        term: '78',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
         results: {
             attendance: 0,         // out of 10
             homework: 0,         // out of 10
@@ -77,11 +77,11 @@ const students = {
         }
     },
 
-    'BARAH': {
-        password: '125710',
-        name: 'Barah Wadan',
-        level: 'AD-B',
-        term: '78',
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
         results: {
             attendance: 0,         // out of 10
             homework: 0,         // out of 10
@@ -96,11 +96,11 @@ const students = {
         }
     },
 
-    'BASMA': {
-        password: '126574',
-        name: 'Basma Al-Salamy',
-        level: 'AD-B',
-        term: '78',  // Added term number
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
         results: {
             attendance: 0,         // out of 10
             homework: 0,         // out of 10
@@ -115,11 +115,11 @@ const students = {
         }
     },
 
-    'EBA': {
-        password: '132561',
-        name: 'Eba Al-Babli',
-        level: 'AD-B',
-        term: '78',
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
         results: {
             attendance: 0,         // out of 10
             homework: 0,         // out of 10
@@ -134,11 +134,11 @@ const students = {
         }
     },
 
-    'LYBIA': {
-        password: '232527',
-        name: 'Lybia Wadan',
-        level: 'AD-B',
-        term: '78',
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
         results: {
             attendance: 0,         // out of 10
             homework: 0,         // out of 10
@@ -152,6 +152,141 @@ const students = {
             finalExam: 0         // out of 35
         }
     },
+
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
+        results: {
+            attendance: 0,         // out of 10
+            homework: 0,         // out of 10
+            presentation: 0,       // out of 10
+            dictation: 0,       // out of 10
+            quiz1: 0,           // out of 5
+            quiz2: 0,             // out of 5
+            quiz3: 0,           // out of 5
+            storyWritten: 0,    // out of 5
+            storyOral: 0,         // out of 5
+            finalExam: 0         // out of 35
+        }
+    },
+
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
+        results: {
+            attendance: 0,         // out of 10
+            homework: 0,         // out of 10
+            presentation: 0,       // out of 10
+            dictation: 0,       // out of 10
+            quiz1: 0,           // out of 5
+            quiz2: 0,             // out of 5
+            quiz3: 0,           // out of 5
+            storyWritten: 0,    // out of 5
+            storyOral: 0,         // out of 5
+            finalExam: 0         // out of 35
+        }
+    },
+
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
+        results: {
+            attendance: 0,         // out of 10
+            homework: 0,         // out of 10
+            presentation: 0,       // out of 10
+            dictation: 0,       // out of 10
+            quiz1: 0,           // out of 5
+            quiz2: 0,             // out of 5
+            quiz3: 0,           // out of 5
+            storyWritten: 0,    // out of 5
+            storyOral: 0,         // out of 5
+            finalExam: 0         // out of 35
+        }
+    },
+
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
+        results: {
+            attendance: 0,         // out of 10
+            homework: 0,         // out of 10
+            presentation: 0,       // out of 10
+            dictation: 0,       // out of 10
+            quiz1: 0,           // out of 5
+            quiz2: 0,             // out of 5
+            quiz3: 0,           // out of 5
+            storyWritten: 0,    // out of 5
+            storyOral: 0,         // out of 5
+            finalExam: 0         // out of 35
+        }
+    },
+
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
+        results: {
+            attendance: 0,         // out of 10
+            homework: 0,         // out of 10
+            presentation: 0,       // out of 10
+            dictation: 0,       // out of 10
+            quiz1: 0,           // out of 5
+            quiz2: 0,             // out of 5
+            quiz3: 0,           // out of 5
+            storyWritten: 0,    // out of 5
+            storyOral: 0,         // out of 5
+            finalExam: 0         // out of 35
+        }
+    },
+
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
+        results: {
+            attendance: 0,         // out of 10
+            homework: 0,         // out of 10
+            presentation: 0,       // out of 10
+            dictation: 0,       // out of 10
+            quiz1: 0,           // out of 5
+            quiz2: 0,             // out of 5
+            quiz3: 0,           // out of 5
+            storyWritten: 0,    // out of 5
+            storyOral: 0,         // out of 5
+            finalExam: 0         // out of 35
+        }
+    },
+
+    'ABDO': {
+        password: '13579',
+        name: 'Abdo Naji',
+        level: 'ELT-D',
+        term: '79',
+        results: {
+            attendance: 0,         // out of 10
+            homework: 0,         // out of 10
+            presentation: 0,       // out of 10
+            dictation: 0,       // out of 10
+            quiz1: 0,           // out of 5
+            quiz2: 0,             // out of 5
+            quiz3: 0,           // out of 5
+            storyWritten: 0,    // out of 5
+            storyOral: 0,         // out of 5
+            finalExam: 0         // out of 35
+        }
+    },
+
+    
     
 };
 

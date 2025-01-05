@@ -463,7 +463,7 @@ let currentQuestion = 0;
 let score = 0;
 let hasAnswered = false;
 let timerInterval;
-let timeLeft = 40;
+let timeLeft = 70;
 let userAnswers = [];
 let currentQuizType = null;
 
