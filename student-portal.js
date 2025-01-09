@@ -19,26 +19,7 @@ const students = {
     //     }
     // },
 
-    // Example of same student in different term
-    'STD002': {
-        password: 'pass123',
-        name: 'John Doe',
-        level: 'Advanced',
-        term: '78',  // Different term
-        results: {
-            attendance: 9.5,
-            homework: 9,
-            presentation: 8.5,
-            dictation: 9,
-            quiz1: 4.5,
-            quiz2: 4.5,
-            quiz3: 4.5,
-            storyWritten: 4.5,
-            storyOral: 4.5,
-            finalExam: 33
-        }
-    },
-    
+    // Example of same student in different term    
     'EXAMPLE': {
         password: 'example',
         name: 'Ansi_Example',
@@ -77,9 +58,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'ABEER': {
+        password: '12279',
+        name: 'Abeer Fuad',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -96,9 +77,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'OMAIMAH': {
+        password: '17249',
+        name: 'Omaimah Al-Jady',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -115,9 +96,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'HADEEL': {
+        password: '6243',
+        name: 'Hadeel Yeser',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -134,9 +115,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'SANA': {
+        password: '8642',
+        name: 'Sana Ali',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -153,9 +134,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'SHAIMA': {
+        password: '8653',
+        name: 'Shaima Al-Aramy',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -172,9 +153,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'MARAM': {
+        password: '7164',
+        name: 'Maram Mohammed',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -191,9 +172,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'SALMA': {
+        password: '8274',
+        name: 'Salma Mohammed',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -210,9 +191,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'NORA': {
+        password: '8260',
+        name: 'Nora Al-Shaif',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -229,9 +210,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'HOURIH': {
+        password: '2870',
+        name: 'Hourih Al-Shabibi',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -248,9 +229,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'REEM': {
+        password: '2375',
+        name: 'Reem Adel',
         level: 'ELT-D',
         term: '79',
         results: {
@@ -267,9 +248,9 @@ const students = {
         }
     },
 
-    'ABDO': {
-        password: '13579',
-        name: 'Abdo Naji',
+    'AMANI': {
+        password: '2460',
+        name: 'Amani Najm',
         level: 'ELT-D',
         term: '79',
         results: {
