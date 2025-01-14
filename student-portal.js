@@ -45,16 +45,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 10,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 9,       // out of 10
+            dictation: 8,       // out of 10
+            quiz1: 4,           // out of 5
+            quiz2: 3,             // out of 5
+            quiz3: 4,           // out of 5
+            storyWritten: 8,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 29         // out of 35
         }
     },
 
@@ -64,16 +64,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 10,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 8,       // out of 10
+            dictation: 7,       // out of 10
+            quiz1: 4,           // out of 5
+            quiz2: 3,             // out of 5
+            quiz3: 3,           // out of 5
+            storyWritten: 8,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 17         // out of 35
         }
     },
 
@@ -83,16 +83,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 9,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 8,       // out of 10
+            dictation: 7,       // out of 10
+            quiz1: 3,           // out of 5
+            quiz2: 3,             // out of 5
+            quiz3: 2,           // out of 5
+            storyWritten: 8,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 20         // out of 35
         }
     },
 
@@ -102,16 +102,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 9,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 9,       // out of 10
+            dictation: 7,       // out of 10
+            quiz1: 2,           // out of 5
+            quiz2: 3,             // out of 5
+            quiz3: 2,           // out of 5
+            storyWritten: 8,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 20         // out of 35
         }
     },
 
@@ -121,16 +121,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 10,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 10,       // out of 10
+            dictation: 8,       // out of 10
+            quiz1: 4.5,           // out of 5
+            quiz2: 4.5,             // out of 5
+            quiz3: 4,           // out of 5
+            storyWritten: 8,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 32         // out of 35
         }
     },
 
@@ -140,16 +140,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 9,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 10,       // out of 10
+            dictation: 9,       // out of 10
+            quiz1: 4.5,           // out of 5
+            quiz2: 4.5,             // out of 5
+            quiz3: 4,           // out of 5
+            storyWritten: 9,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 35         // out of 35
         }
     },
 
@@ -159,16 +159,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 8,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 10,       // out of 10
+            dictation: 6,       // out of 10
+            quiz1: 3,           // out of 5
+            quiz2: 2,             // out of 5
+            quiz3: 2,           // out of 5
+            storyWritten: 7,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 22         // out of 35
         }
     },
 
@@ -178,16 +178,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 9,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 10,       // out of 10
+            dictation: 8,       // out of 10
+            quiz1: 3.5,           // out of 5
+            quiz2: 3.5,             // out of 5
+            quiz3: 3,           // out of 5
+            storyWritten: 8,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 25         // out of 35
         }
     },
 
@@ -197,16 +197,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 9,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 10,       // out of 10
+            dictation: 7,       // out of 10
+            quiz1: 3,           // out of 5
+            quiz2: 2,             // out of 5
+            quiz3: 2,           // out of 5
+            storyWritten: 7,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 20         // out of 35
         }
     },
 
@@ -216,16 +216,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 10,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 9,       // out of 10
+            dictation: 7,       // out of 10
+            quiz1: 5,           // out of 5
+            quiz2: 5,             // out of 5
+            quiz3: 4,           // out of 5
+            storyWritten: 8,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 32         // out of 35
         }
     },
 
@@ -235,16 +235,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 10,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 9,       // out of 10
+            dictation: 9,       // out of 10
+            quiz1: 4,           // out of 5
+            quiz2: 5,             // out of 5
+            quiz3: 4,           // out of 5
+            storyWritten: 9,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 32         // out of 35
         }
     },
 
@@ -254,16 +254,16 @@ const students = {
         level: 'ELT-D',
         term: '79',
         results: {
-            attendance: 0,         // out of 10
-            homework: 0,         // out of 10
-            presentation: 0,       // out of 10
-            dictation: 0,       // out of 10
-            quiz1: 0,           // out of 5
-            quiz2: 0,             // out of 5
-            quiz3: 0,           // out of 5
-            storyWritten: 0,    // out of 5
+            attendance: 10,         // out of 10
+            homework: 10,         // out of 10
+            presentation: 9,       // out of 10
+            dictation: 9,       // out of 10
+            quiz1: 4,           // out of 5
+            quiz2: 5,             // out of 5
+            quiz3: 4,           // out of 5
+            storyWritten: 9,    // out of 5
             storyOral: 0,         // out of 5
-            finalExam: 0         // out of 35
+            finalExam: 32         // out of 35
         }
     },
 
